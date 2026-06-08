@@ -310,7 +310,8 @@ h2 { font-size: clamp(2.35rem, 6vw, 3.15rem); margin-bottom: 0.6rem; }
 .timeline-grid { grid-template-columns: repeat(3, 1fr); }
 .gallery-grid { grid-template-columns: repeat(3, 1fr); }
 
-.card, .timeline-card, .quote-card { padding: 1.1rem; }
+.card, .quote-card { padding: 1.1rem; }
+.timeline-card { padding: 1.4rem 1.3rem; }
 .card { text-align: center; }
 .card p, .quote-card p, .thank-you p, .story-grid p { color: var(--muted); }
 
@@ -320,8 +321,33 @@ h2 { font-size: clamp(2.35rem, 6vw, 3.15rem); margin-bottom: 0.6rem; }
   padding-bottom: 0.15rem;
 }
 
-.timeline-card strong { display: block; font-size: 1.15rem; color: #fff; margin-bottom: 0.25rem; }
-.timeline-card span { color: var(--muted); font-size: 1rem; }
+.timeline-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-card strong { display: block; font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem; }
+.timeline-card span { color: var(--muted); font-size: 1rem; margin-bottom: 0.5rem; }
+.timeline-card p { color: var(--muted); font-size: 0.97rem; line-height: 1.65; margin: 0.4rem 0 0; flex: 1; }
+.timeline-card p em { color: var(--gold); font-style: normal; font-weight: 600; }
+
+.timeline-ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+  color: var(--gold);
+  opacity: 0.7;
+}
+.timeline-ornament::before,
+.timeline-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.45;
+}
+.timeline-ornament span { font-size: 0.9rem; }
 
 .quote-card {
   display: grid; align-content: center;
