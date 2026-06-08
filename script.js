@@ -19,11 +19,22 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener('click', () => {
-    document.querySelectorAll('.topbar__links a').forEach((item) => item.classList.remove('active'));
+const hamburger = document.querySelector('.hamburger');
+const topbarLinks = document.querySelector('.topbar__links');
+if (hamburger && topbarLinks) {
+  hamburger.addEventListener('click', () => {
+    const open = topbarLinks.classList.toggle('is-open');
+    hamburger.classList.toggle('is-open', open);
+    hamburger.setAttribute('aria-expanded', open);
   });
-});
+  topbarLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      topbarLinks.classList.remove('is-open');
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+}
 
 const galleryTrack = document.querySelector('.gallery-track');
 if (galleryTrack) {
